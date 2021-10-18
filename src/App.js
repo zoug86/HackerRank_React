@@ -8,16 +8,16 @@ const title = "Sorting Articles";
 
 function App({ articles }) {
 
-    const [newArticles, setNewArticles] = useState(articles.sort((a, b) => parseInt(b.upvotes) - parseInt(a.upvotes)));
+    const [newArticles, setNewArticles] = useState([...articles].sort((a, b) => parseInt(b.upvotes) - parseInt(a.upvotes)));
 
     const handleMostUpvoted = () => {
-        setNewArticles(newArticles.sort((a, b) => parseInt(b.upvotes) - parseInt(a.upvotes)));
+        setNewArticles([...articles].sort((a, b) => parseInt(b.upvotes) - parseInt(a.upvotes)));
     }
 
     const handleMostRecent = () => {
-        setNewArticles(newArticles.sort((a, b) => Date.parse(b.date) - Date.parse(a.date)));
+        setNewArticles([...articles].sort((a, b) => Date.parse(b.date) - Date.parse(a.date)));
     }
-
+    console.log(articles)
     return (
         <div className="App">
             <h8k-navbar header={title}></h8k-navbar>
